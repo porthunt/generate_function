@@ -1,0 +1,71 @@
+/* Igor Domingues de Freitas 	- 1010310 - 3WA */
+/* João Pedro Portela Gómez Vaz - 1011141 - 3WA */
+
+Foram realizados testes com os seguintes parâmetros:
+
+- INT_PAR;
+- PTR_PAR;
+- CHAR_PAR;
+- DOUBLE_PAR.
+
+Nas combinações seguintes (com 3 parâmetros):
+
+- Amarrado, amarrado, amarrado;
+- Amarrado, desamarrado, amarrado;
+- Amarrado, desamarrado, desamarrado;
+- Desamarrado, amarrado, desamarrado;
+- Desamarrado, amarrado, amarrado;
+- Desamarrado, desamarrado, desamarrado.
+
+Com todos os 4 tipos de parâmetros.
+
+Foram realizados também testes com parâmetros mistos:
+
+- INT_PAR e PTR_PAR;
+- INT_PAR e CHAR_PAR;
+- INT_PAR e DOUBLE_PAR;
+- DOUBLE_PAR e PTR_PAR;
+- DOUBLE_PAR e CHAR_PAR;
+- PTR_PAR e CHAR_PAR;
+
+Foram testados tantos números positivos quanto negativos,
+nos testes envolvendo tipos INT_PAR, DOUBLE_PAR, tanto para
+parâmetros amarrado, quanto para desamarrado.
+
+Todos os testes foram realizados com sucesso.
+
+Exemplo:
+
+/*
+double pow1 (double x, double* y)
+{
+	double a = x + *y;
+	return a; 
+}
+
+typedef double (*func_ptr) ();
+
+int main (void) {
+    Parametro params[2];
+    func_ptr f_quadrado = NULL;
+	double e = 10.0;
+	double d = 0;
+	double * y = &e;
+	int i;
+    
+    params[0].tipo = DOUBLE_PAR;
+    params[0].amarrado = 1;
+    params[0].valor.v_double = 120.0;
+    params[1].tipo = PTR_PAR;
+    params[1].amarrado = 1;
+    params[1].valor.v_ptr = y;
+    
+    f_quadrado = (func_ptr) gera_func (pow1, 2, params);
+   
+	d = f_quadrado();
+    printf("%d = %f\n", i, d);
+
+    libera_func(f_quadrado);
+	return 0;
+}
+*/
